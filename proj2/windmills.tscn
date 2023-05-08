@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://brfwr3dbq7ygw"]
+
+[ext_resource type="PackedScene" uid="uid://ubve78dyfol6" path="res://platform.tscn" id="1_1b6wa"]
+
+[sub_resource type="Animation" id="Animation_kxmif"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(619, 227)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vprc5"]
+resource_name = "rotation"
+length = 76575.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(619, 227)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ug1ml"]
+_data = {
+"RESET": SubResource("Animation_kxmif"),
+"rotation": SubResource("Animation_vprc5")
+}
+
+[node name="windmills" type="Node2D"]
+position = Vector2(619, 227)
+
+[node name="platform" parent="." instance=ExtResource("1_1b6wa")]
+
+[node name="platform2" parent="." instance=ExtResource("1_1b6wa")]
+rotation = 1.0472
+
+[node name="platform3" parent="." instance=ExtResource("1_1b6wa")]
+rotation = 2.0944
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "rotation"
+libraries = {
+"": SubResource("AnimationLibrary_ug1ml")
+}

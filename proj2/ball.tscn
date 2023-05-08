@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://bd5twab0wisfk"]
+
+[ext_resource type="Script" path="res://ball.gd" id="1_tuqdd"]
+[ext_resource type="AudioStream" uid="uid://rb3wdnqre78t" path="res://week3_marble_collision.wav" id="2_t1pk6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t73lc"]
+bounce = 0.68
+
+[sub_resource type="SphereMesh" id="SphereMesh_3ppfj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mbohi"]
+radius = 24.92
+
+[node name="ball" type="RigidBody2D"]
+position = Vector2(577, 371)
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_t73lc")
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_tuqdd")
+
+[node name="mesh" type="MeshInstance2D" parent="."]
+scale = Vector2(50, 50)
+mesh = SubResource("SphereMesh_3ppfj")
+
+[node name="collision_shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mbohi")
+
+[node name="collide_sound_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_t1pk6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

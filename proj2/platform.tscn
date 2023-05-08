@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ubve78dyfol6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t73lc"]
+bounce = 0.23
+
+[sub_resource type="QuadMesh" id="QuadMesh_8shsn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thojq"]
+size = Vector2(100, 100)
+
+[node name="platform" type="AnimatableBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_t73lc")
+
+[node name="mesh" type="MeshInstance2D" parent="."]
+scale = Vector2(100, 10)
+mesh = SubResource("QuadMesh_8shsn")
+
+[node name="collision_shape" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 0.1)
+shape = SubResource("RectangleShape2D_thojq")

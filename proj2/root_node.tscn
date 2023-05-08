@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnvh00d08u8kv"]
+
+[ext_resource type="Script" path="res://root_node.gd" id="1_anitp"]
+[ext_resource type="PackedScene" uid="uid://brfwr3dbq7ygw" path="res://windmills.tscn" id="1_yjvnv"]
+[ext_resource type="PackedScene" uid="uid://ubve78dyfol6" path="res://platform.tscn" id="3_ga3v4"]
+
+[node name="root" type="Node2D"]
+script = ExtResource("1_anitp")
+
+[node name="windmills" parent="." instance=ExtResource("1_yjvnv")]
+
+[node name="platform" type="Node2D" parent="."]
+
+[node name="platform1" parent="platform" instance=ExtResource("3_ga3v4")]
+position = Vector2(450, 304)
+rotation = 1.0175
+
+[node name="platform2" parent="platform" instance=ExtResource("3_ga3v4")]
+position = Vector2(517, 367)
+rotation = 0.473111
+
+[node name="platform3" parent="platform" instance=ExtResource("3_ga3v4")]
+position = Vector2(608, 389)
+
+[node name="platform4" parent="platform" instance=ExtResource("3_ga3v4")]
+position = Vector2(699, 369)
+rotation = -0.446103
+
+[node name="platform5" parent="platform" instance=ExtResource("3_ga3v4")]
+position = Vector2(770, 310)
+rotation = -0.938754
+
+[node name="balls" type="Node2D" parent="."]
