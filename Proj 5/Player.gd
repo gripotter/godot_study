@@ -5,17 +5,17 @@ var screen_size
 
 func _ready():
 	screen_size = get_viewport_rect().size
-	hide()#should erase when finish making the game
+	#hide()#should erase when finish making the game
 func _process(delta):
 	var velocity = Vector2.ZERO
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
+		velocity.x += 1.0
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
+		velocity.x -= 1.0
 	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
+		velocity.y -= 1.0
 	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
+		velocity.y += 1.0
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed

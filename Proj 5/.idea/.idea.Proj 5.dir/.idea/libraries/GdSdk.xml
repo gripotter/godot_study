@@ -1,0 +1,9 @@
+﻿<component name="libraryTable">
+  <library name="GdSdk">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../GdSdk 4.0" />
+    </SOURCES>
+  </library>
+</component>
